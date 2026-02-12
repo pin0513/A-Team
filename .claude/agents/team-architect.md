@@ -81,7 +81,8 @@ After all writers complete, validate:
 6. **Coordinator role purity**: Coordinator's Responsibilities section contains only coordination tasks (planning, assignment, tracking, quality control), no execution work
 7. **Coordinator completeness**: Coordinator lists all subordinate agents
 8. **Source attribution**: Every external skill (Pattern A or B) has a Source Attribution section with Origin, Integration type, Retrieved date, and Modifications
-9. **Communication topology** (Agent Teams mode only):
+9. **Process reviewer exists**: A dedicated process reviewer agent exists in a separate group folder (e.g., `review/` or `quality/`), with defined evaluation dimensions and retrospective report format. Exception: teams with 3 or fewer agents may absorb this into the coordinator.
+10. **Communication topology** (Agent Teams mode only):
    - Every agent has a "Communication Patterns" section
    - Peer-to-peer messaging pairs are bidirectional (if A → B exists, B ← A exists)
    - File ownership is non-overlapping between parallel agents
@@ -147,6 +148,7 @@ To deploy a generated team, copy the contents of `teams/{team-name}/` into the t
 - `rules/conversation-protocol.md`: Communication language and interview depth requirements
 - `rules/output-structure.md`: Directory configuration and naming rules for generated teams
 - `rules/coordinator-mandate.md`: Every generated team must use flat architecture with one coordinator
+- `rules/reviewer-mandate.md`: Every generated team must include a process reviewer for continuous iteration
 - `rules/yaml-frontmatter.md`: Every generated .md file must start with YAML frontmatter
 - `rules/writing-quality-standard.md`: Writing style, tone, and length limits for all generated .md files
 

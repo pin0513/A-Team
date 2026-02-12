@@ -50,6 +50,18 @@ The coordinator role needs to:
 - Track task progress and coordinate dependencies between agents
 - Perform final quality gatekeeping
 
+### Step 3.5: Define Process Reviewer
+
+Every team must include a process reviewer role (per `rules/reviewer-mandate.md`). The process reviewer:
+- Reviews the team's execution process after each project cycle
+- Evaluates inter-agent communication quality, workflow adherence, collaboration efficiency, information completeness, and missed opportunities
+- Produces a structured retrospective report with evidence-based findings and actionable recommendations
+- Must be distinct from any QA or output quality reviewer — the process reviewer checks HOW the team worked, not WHAT it produced
+
+**Exception**: Teams with 3 or fewer total agents (including coordinator) may absorb process review into the coordinator's responsibilities instead of creating a dedicated agent.
+
+Place the process reviewer in a dedicated group folder (e.g., `review/` or `quality/`), separate from the agents whose work it reviews.
+
 ### Step 4: Design Groupings
 
 Determine grouping criteria by the following priority:
@@ -142,6 +154,7 @@ Determine which agents can operate concurrently:
 ## Applicable Rules
 
 - `rules/coordinator-mandate.md`: Every team must have a flat-architecture coordinator
+- `rules/reviewer-mandate.md`: Every team must have a process reviewer for continuous iteration
 
 ## Collaboration Relationships
 
