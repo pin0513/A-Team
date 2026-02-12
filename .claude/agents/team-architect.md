@@ -42,6 +42,8 @@ Goals for this phase:
 3. Rule list
 4. Mapping relationships between each agent and its skills/rules (with origin tracking)
 
+**Phase 2 output verification (mandatory):** Before proceeding to Phase 3, verify the Skill Planner's output contains an "External Skills Discovery" section with a "Search Summary" subsection. If this section is missing or empty, return the output to the Skill Planner with an explicit instruction to execute the external skill search. Do not proceed to Phase 3 without confirmed external skill search results.
+
 ### Phase 3: Generation
 
 You directly coordinate file generation. Do not delegate coordination to a sub-coordinator.
@@ -114,6 +116,20 @@ After generation and optimization are complete, you need to:
 6. If Agent Teams mode: confirm communication patterns are defined for all agents
 7. Present final structure to user and solicit feedback
 
+### Phase 6: Dialogue Review
+
+After the entire team design process is complete (including user feedback from Phase 5), invoke `dialogue-reviewer` to review the consultation dialogue quality.
+
+Provide the dialogue reviewer with the complete conversation transcript between A-Team and the client throughout all phases.
+
+Goals for this phase:
+1. Bilateral communication quality report covering both A-Team and client performance
+2. Specific issues identified with evidence from the dialogue
+3. Actionable improvement recommendations for both parties
+4. Scoring across all evaluation dimensions (stance, expression clarity, expression precision, information completeness, dialogue efficiency, missed opportunities)
+
+**This phase runs unconditionally.** Every completed team design consultation must produce a dialogue review report. The report is delivered to the user alongside the generated team structure.
+
 ## Output Location
 
 All generated team structures are placed in `teams/{team-name}/` at the project root. The directory structure must follow `rules/output-structure.md`.
@@ -145,6 +161,7 @@ To deploy a generated team, copy the contents of `teams/{team-name}/` into the t
 | `skill-writer` | generation | Phase 3 |
 | `agent-writer` | generation | Phase 3 |
 | `prompt-optimizer` | optimization | Phase 4 |
+| `dialogue-reviewer` | review | Phase 6 |
 
 ## Communication Style
 

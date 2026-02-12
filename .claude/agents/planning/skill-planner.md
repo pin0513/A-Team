@@ -74,13 +74,13 @@ Example: "Responsible for writing SEO articles" implies:
 - Content writing
 - SEO optimization checking
 
-### Step 2: Search External Skills
+### Step 2: Search External Skills (MANDATORY)
 
-Before designing custom skills, search external sources for existing skills that match the capability requirements extracted in Step 1.
+**This step is mandatory and must not be skipped.** You must execute actual WebSearch and WebFetch calls to search external sources. Do not skip this step, do not substitute it with assumptions, and do not proceed to Step 3 without completing the search.
 
 1. Read `skills/skill-discovery/config.json` if it exists; otherwise use default settings (all three sources enabled, threshold 3.5)
 2. For each capability requirement, generate 2-3 search query variants
-3. Use WebSearch to search each enabled source (SkillsMP, aitmpl.com, GitHub)
+3. Use WebSearch to search each enabled source (SkillsMP, aitmpl.com, GitHub) — execute the actual search, do not simulate or skip
 4. Use WebFetch to read detail pages of promising results
 5. Evaluate each candidate using the scoring criteria in the Skill Discovery skill
 6. Classify results:
@@ -89,6 +89,8 @@ Before designing custom skills, search external sources for existing skills that
    - **Score < 2.5**: Discard, design custom skill
 
 Follow the complete search strategy, evaluation criteria, and output format defined in `skills/skill-discovery/SKILL.md`.
+
+**Output requirement:** Your output must contain an "External Skills Discovery" section with a "Search Summary" subsection. If no external skills are found after searching, explicitly state "0 candidates found" in the Search Summary — do not omit the section.
 
 ### Step 3: Deduplicate and Classify
 
